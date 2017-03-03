@@ -17,7 +17,10 @@ public class MainActivity extends AppCompatActivity {
 
         progressBar = (StageProgressBar) findViewById(R.id.progressBar);
 
+        //设置总进度数
         progressBar.setMaxSpaceCount(6);
+
+        //设置当前进度
         progressBar.setCurProgress(0);
         progressBar.setProgressChanged(new StageProgressBar.IProgressChanged() {
             @Override
