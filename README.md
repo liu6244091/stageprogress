@@ -8,6 +8,9 @@
 
 # 用法
 
+build.gradle文件添加引用即可
+compile 'com.liuyq:stageprogress:1.0.1'
+
 布局代码
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

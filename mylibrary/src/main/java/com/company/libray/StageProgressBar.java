@@ -31,6 +31,15 @@ public class StageProgressBar extends View{
     //当前进度
     private int curProgress = 0;
 
+    //距离左边的距离 px
+    private int slideWidth = dip2px(getContext(), 10);
+
+    //最多100等份
+    private int x_max = 100;
+
+    //每以等份的px总长度
+    private float xUtilsPx;
+
 
     public StageProgressBar(Context context) {
         super(context);
@@ -43,6 +52,18 @@ public class StageProgressBar extends View{
     public StageProgressBar(Context context, AttributeSet attrs,
                             int defStyle) {
         super(context, attrs, defStyle);
+    }
+
+    /**
+     * 初始化数据
+     */
+    private void init(){
+
+        //初始化画笔
+        paint = new Paint();
+        paint.setAntiAlias(true);
+        paint.setColor(color);
+
     }
 
     /**
@@ -81,9 +102,9 @@ public class StageProgressBar extends View{
     protected void onDraw(Canvas canvas) {
 
         //初始化画笔
-        paint = new Paint();
-        paint.setAntiAlias(true);
-        paint.setColor(color);
+        if(null == paint){
+            init();
+        }
 
         //画线
         drawLine(canvas);
@@ -300,12 +321,6 @@ public class StageProgressBar extends View{
 
         return value;
     }
-
-
-
-    private int slideWidth = 20;
-    private int x_max = 100;
-    private float xUtilsPx;
 
     /**
      * 计算长度单位值
